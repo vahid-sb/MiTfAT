@@ -14,8 +14,8 @@ def read(filename):
 
 
 setup(
-    name="MiTfAT",
-    version="0.1.6",
+    name="MiTfAT: An fMRI Analysis Tool, Made in Tübingen",
+    version="0.1.7",
     url="https://gitlab.tuebingen.mpg.de/vbokharaie/mitfat/",
     license="GNU Version 3",
     author="Vahid Samadi Bokharaie",
