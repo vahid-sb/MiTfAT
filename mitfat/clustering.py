@@ -125,18 +125,18 @@ def cluster_raw(X_train, no_clusters):
 
 
 # %%
-def kmeans_missing(xx_, no_clusters, max_iter=30):
+def kmeans_missing(xx, no_clusters, max_iter=30):
     """Perform K-Means clustering on data with missing values.
     Found it in stackoverflow
     Argumentss:
-      xx_:            An [n_samples, n_features] array of data to cluster.
+      xx:            An [n_samples, n_features] array of data to cluster.
       n_clusters:   Number of clusters to form.
       max_iter:     Maximum number of EM iterations to perform.
 
     Returns:
       labels:       An [n_samples] vector of integer labels.
       centroids:    An [n_clusters, n_features] array of cluster centroids.
-      x_hat:        Copy of xx_ with the missing values filled in.
+      x_hat:        Copy of xx with the missing values filled in.
     """
 
     # dependencies
@@ -151,9 +151,9 @@ def kmeans_missing(xx_, no_clusters, max_iter=30):
         []
     )  # just added tp remove warning that says they are used before being define
 
-    missing = ~np.isfinite(xx_)
-    mu_ = np.nanmean(xx_, 0, keepdims=1)
-    x_hat = np.where(missing, mu_, xx_)
+    missing = ~np.isfinite(xx)
+    mu_ = np.nanmean(xx, 0, keepdims=1)
+    x_hat = np.where(missing, mu_, xx)
 
     for cc_ in np.arange(max_iter):
         if cc_ > 0:
