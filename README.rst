@@ -42,9 +42,7 @@ You can install `MitfAT` using `pip`. In your command prompt or bash, simply typ
 If you are using Anaconda on Windows, better to open an Anaconda command prompt
 and then type the above.
 
-Or if you want to work with the latest beta-release, you can find it in:
-
-https://gitlab.tuebingen.mpg.de/vbokharaie/mitfat
+Or if you want to work with the latest beta-release, you can install directly from this repository.
 
 
     **If you don't know anything about Python:**
@@ -57,7 +55,7 @@ https://gitlab.tuebingen.mpg.de/vbokharaie/mitfat
 Usage
 -----
 
-In the 'docs' folder of the repository, you can find the `User Manual <docs/mitfat.pdf>`_, which includes the latest version of the manual.
+In the 'docs' folder of the repository, you can find the `User Manual <docs/mitfat.pdf>`_, which includes detailed description of the various functionalities of the `MiTfAT` library, and example.
 
 
 
@@ -66,15 +64,16 @@ Requirements
 
  .. code-block:: python
 
-    seaborn==0.9.0
-    pandas==0.25.0
-    numpy==1.16.4
-    scipy==1.3.0
-    matplotlib==3.1.1
-    nibabel==2.5.0
-    nilearn==0.5.2
-    scikit_learn==0.21.3
-    openpyxl  # this is a pandas dependency
+  "pandas",
+  "numpy",
+  "scipy",
+  "matplotlib",
+  "nibabel",
+  "nilearn",
+  "pathlib",
+  "click",
+  "seaborn",
+  "openpyxl",
 
 
 Compatibility
@@ -94,7 +93,7 @@ This code was originally developed for a collaboration which led to the followin
 
 Savić T. , Gambino G., Bokharaie V. S., Noori H. R., Logothetis N.K., Angelovski G., "Early detection and monitoring of cerebral ischemia using calcium-responsive MRI probes", PNAS, 2019.
 
-Authors
+Author
 -------
 
 `MiTfAT` is maintained by `Vahid Samadi Bokharaie <vahid.bokharaie@tuebingen.mpg.de>`_.
