@@ -57,6 +57,8 @@ Usage
 
 In the 'docs' folder of the repository, you can find the `User Manual <docs/mitfat.pdf>`_, which includes detailed description of the various functionalities of the `MiTfAT` library, and example.
 
+Thee are also two scripts in `tests` folder, accomponied with sample datasets, which you can run to see sample outputs of the library. 
+
 
 
 Requirements
