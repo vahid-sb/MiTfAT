@@ -38,6 +38,10 @@
 DATA_FILE: sample_data_T1w.nii.gz
 MASK_FILE: sample_data_mask.nii.gz
 
+# 
+DIR_SOURCE: datasets
+DIR_SAVE: Output_Sample_Dataset
+
 # optional time file, and event times
 TIME_FILE: sample_data_time_T1w.txt
 EVENT_TIMES: 123,181

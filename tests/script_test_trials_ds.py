@@ -1,24 +1,36 @@
-import click
-@click.command()
-@click.argument('filename', default='info_file_UN1_26.txt')
-@click.argument('data_folder', default='datasets_trials')
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 27 13:58:02 2020.
 
-def main(filename, data_folder):
+@author: vbokharaie
+"""
+
+# %% __main__
+if __name__ == "__main__":
+
     from mitfat.file_io import read_data
-    import os
     import numpy as np
     from pathlib import Path
     import matplotlib.pyplot as plt
 
     from mitfat.bplots import plot_trial_cluster_seq, plot_line
+
+    info_file_name = 'info_file_UN1_26.txt'
+    info_file_name_no_trials = 'info_file_UN1_26_no_trials.txt'
+    data_folder = 'datasets_trials'
     #%% look at the sample_info_file.txt for info on how to setup the info.file
-    # comment the next for lines if you do not want to use sample dataset
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    info_file_name = filename
+    # dir_path = os.path.dirname(os.path.realpath(__file__))
+    dir_path = Path(__file__).resolve().parent
     info_file_name = Path(dir_path, info_file_name)
-    print(info_file_name)
+    info_file_name_no_trials = Path(dir_path, info_file_name_no_trials)
+    print('Reading dataset info from:\n', info_file_name)
+    print('----------------------------------------')
 
     #%% read the data based on the info in info_file_name
+    print('*********************************************')
+    print('Reading the data ...')
+    print('*********************************************')
     ###########################################################################
     list_fmri_objects = read_data(info_file_name)  # load all trials into a list of datasets
     ###########################################################################
@@ -33,11 +45,11 @@ def main(filename, data_folder):
             not line.startswith('TRIAL_LENGTH') and \
             not line.startswith('TIME_STEP'):
                 list_file_new.append(line)
-    info_file_name_no_trials = Path(info_file_name.parent, info_file_name.stem + '_no_trials.txt')
-    with open(info_file_name_no_trials, 'w') as f:
+    info_file2 = Path(info_file_name.parent, info_file_name.stem + '_no_trials.txt')
+    with open(info_file2, 'w') as f:
         for item in list_file_new:
             f.write("%s\n" % item)
-    list_fmri_overall = read_data(info_file_name_no_trials)
+    list_fmri_overall = read_data(info_file2)
     dataset_overall = list_fmri_overall[0]
     X_train = np.mean(dataset_overall.data, axis=0)
     Ntop = 20
@@ -48,6 +60,11 @@ def main(filename, data_folder):
 
 
     #%% choosing top N voxels (in terms of mean value of signal)
+    print('*********************************************')
+    print('Choosing Top N=10 voxels in each trial, in terms of signal amplitude ...')
+    print('We can also use hierarchical clustering for such purpose, rather than setting a fixed number.')
+    print('*********************************************')
+
     for Nt in np.arange(10)+1:
         print('------------>', Nt)
         list_my_data_mean = []
@@ -85,7 +102,8 @@ def main(filename, data_folder):
                 for cc3 in np.arange(len(list_temp)-1):
                     my_data = np.concatenate((my_data, list_temp[cc3+1]))
 
-            dir_save = Path(Path(__file__).resolve().parent, 'outputs')
+            # dir_save = Path(Path(__file__).resolve().parent, 'outputs')
+            dir_save = dataset.dir_save
             title_str = dataset.experiment_name
             dir_save = Path(dir_save, title_str, 'clusters_'+str(Nt).zfill(2)+'_trials')
 
@@ -102,6 +120,9 @@ def main(filename, data_folder):
         array_data_mean_normalised = np.array(list_my_data_mean_normalised).T
 #
         #%% plot clustering of the overall data
+        print('*********************************************')
+        print('Clustering of the overall data ...')
+        print('*********************************************')
         list_cluster_NO = [2,3,4,5]
         for cluster_NO in list_cluster_NO:
             from mitfat.clustering import cluster_raw
@@ -125,6 +146,9 @@ def main(filename, data_folder):
                                    my_title, dir_save, Cluster_num=cluster_NO)
 
         #%% plot mean of all trials
+        print('*********************************************')
+        print('Plot mean of all trials ...')
+        print('*********************************************')
         mean_all_trials_raw = np.mean(list_my_data_mean, axis=0)
         mean_all_trials_normalised = np.mean(list_my_data_mean_normalised, axis=0)
         fig, ax = plot_line(mean_all_trials_raw,
@@ -140,8 +164,3 @@ def main(filename, data_folder):
         filesave = Path(dir_save, '02_OVERALL_MEAN_NORMALISED.png')
         fig.savefig(filesave)
     plt.close('all')
-
-# %% __main__
-if __name__ == "__main__":
-
-    main()
