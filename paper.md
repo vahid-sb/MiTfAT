@@ -18,7 +18,7 @@ affiliations:
 
 date: 20 October 2020
 
-bibliography: mitfat.bib
+bibliography: paper.bib
 
 # Summary
  
