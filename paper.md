@@ -45,8 +45,9 @@ The basic principle behind `MiTfAT` is that it imports all the relevant data of 
 - Averaging over many trials. If we repeat an experiment many times, then it is usually of interest to average the measurements over all the trials. This can be useful if each measurement is noisy and we want to attenuate the effects of noise. `MiTfAT` allows us to do so. 
 
 # Examples
-`MiTfAT` repository includes a manual which contains many examples of the various capabilities of the library. It can be found [here] (
-https://github.com/vahid-sb/MiTfAT/blob/master/docs/mitfat.pdf)
+`MiTfAT` repository includes a manual which contains many examples of the various capabilities of the library. It can be found [here](https://github.com/vahid-sb/MiTfAT/tree/master/docs/mitfat.pdf)
+
+Thee are also two scripts in `tests` folder of the repository ([here](https://github.com/vahid-sb/MiTfAT/tree/master/test/)), accomponied with sample datasets, which you can run to see sample outputs of the library. 
  
 ## References
 <a id="1">[1]</a> 
