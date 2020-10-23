@@ -1,5 +1,6 @@
 ---
-title: 'MiTfAT: A Python-based fMRI Analysis Tool, Made in Tuebingen.'
+title: 'MiTfAT: A Python-based scikit-learn-friendly fMRI Analysis Tool, Made in Tuebingen.'
+
 tags:
   - Python
   - fMRI Analysis
@@ -10,10 +11,13 @@ authors:
   - name: Vahid S. Bokharaie
     orcid: 0000-0001-6544-7960
     affiliation: "1" # (Multiple affiliations must be quoted)
+
 affiliations:
  - name: Max Planck Institute for Biological Cybernetics, Tuebingen, Germany
    index: 1
-date: 10 October 2020
+
+date: 20 October 2020
+
 bibliography: mitfat.bib
 
 # Summary
