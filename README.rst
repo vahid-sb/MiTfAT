@@ -71,7 +71,6 @@ Requirements
   "nibabel",
   "nilearn",
   "pathlib",
-  "click",
   "seaborn",
   "openpyxl",
 
@@ -96,4 +95,4 @@ Savić T. , Gambino G., Bokharaie V. S., Noori H. R., Logothetis N.K., Angelovsk
 Author
 -------
 
-`MiTfAT` is maintained by `Vahid Samadi Bokharaie <vahid.bokharaie@tuebingen.mpg.de>`_.
+`MiTfAT` is maintained by `Vahid Samadi Bokharaie <vahid.bokharaie@protonmail.com>`_.

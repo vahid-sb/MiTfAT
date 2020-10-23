@@ -1,0 +1,17 @@
+# obligatiry info:
+DATA_FILE: corr_FISP_UN1_s26.nii.gz
+MASK_FILE: UN1_scan26_1_00001_mask.nii.gz
+DIR_SOURCE: ./
+# other optional info
+DS_NO: 26
+EXP_NAME: UN1
+
+SIGNAL_NAME: T1w
+MOL_NAME: PFCE_5_mM
+FIRST_TRIAL_TIME: 0.0
+TRIAL_LENGTH: 30.0
+TIME_STEP: 3
+EVENT_TIMES: 6.0, 12.0
+
+
+
