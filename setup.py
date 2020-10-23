@@ -35,13 +35,12 @@ setup(
         "nibabel",
         "nilearn",
         "pathlib",
-	"click",
 	"seaborn",
 	"openpyxl",
     ],
 
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 2 - Beta",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.7",

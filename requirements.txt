@@ -5,6 +5,5 @@
 "nibabel",
 "nilearn",
 "pathlib",
-"click",
 "seaborn",
 "openpyxl",
