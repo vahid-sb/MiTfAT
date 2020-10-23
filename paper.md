@@ -47,7 +47,7 @@ The basic principle behind `MiTfAT` is that it imports all the relevant data of 
 # Examples
 `MiTfAT` repository includes a manual which contains many examples of the various capabilities of the library. It can be found [here](https://github.com/vahid-sb/MiTfAT/tree/master/docs/mitfat.pdf)
 
-Thee are also two scripts in `tests` folder of the repository ([here](https://github.com/vahid-sb/MiTfAT/tree/master/test/)), accomponied with sample datasets, which you can run to see sample outputs of the library. 
+Thee are also two scripts in `tests` folder of the repository ([here](https://github.com/vahid-sb/MiTfAT/tree/master/tests/)), accomponied with sample datasets, which you can run to see sample outputs of the library. 
  
 ## References
 <a id="1">[1]</a> 
