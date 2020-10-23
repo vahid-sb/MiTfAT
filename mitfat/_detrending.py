@@ -34,7 +34,7 @@ def detrend(self):
     from pathlib import Path
 
     from mitfat import flags
-    from mitfat._plotting import save_fig
+    from mitfat.bplots import save_fig
 
     cluster_labels, cluster_centroids = self.cluster_hierarchial()
     cluster_centroids_0 = cluster_centroids[0, :]
@@ -62,7 +62,7 @@ def detrend(self):
     df_detrended = pd.DataFrame(columns=column_names, index=my_index)
     df_detrended.at[:, 'Time'] = time_steps
 
-    fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True, figsize=(12, 8))
+    fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True,)
     fig.suptitle('Mean and its spline')
     ## representative signal
     ax1.plot(time_steps, y_t,\
@@ -153,9 +153,9 @@ def detrend(self):
     handles, labels = ax1.get_legend_handles_labels()
     fig.legend(handles, labels, loc='upper right')
     figsize=(16.0, 10.0)
-    
+
     save_fig(fig, dir_save_subfolder, 'mean_and_splines.png', figsize)
-    
+
 #    if flags.if_save_png:
 #        filename_bb = Path(dir_save_subfolder, 'mean_and_splines.png')
 #        fig.savefig(filename_bb, dpi=100, figsize=(16.0, 10.0), format='png')
@@ -165,7 +165,7 @@ def detrend(self):
 #                    dpi=100, figsize=(16.0, 10.0), format='eps')
 
     ####
-    fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True, figsize=(12, 8))
+    fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True,)
     fig.suptitle('Mean detrended (using spline)')
     if len(indices_cutoff) == 4:
         ax1.plot(time_steps, y_t-y_hat_seg1_3,\
@@ -194,7 +194,7 @@ def detrend(self):
 #                        dpi=100, figsize=(16.0, 10.0), format='eps')
 
     ####
-    fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True, figsize=(12, 8))
+    fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True,)
     fig.suptitle('Mean splined then detrended (using spline)')
 #        ax1.plot(time_steps, y_t-y_hat_seg1_3,\
 #                label ='mean detrended', color='k', lw = 5, alpha = 0.95)
@@ -217,10 +217,10 @@ def detrend(self):
     handles, labels = ax1.get_legend_handles_labels()
     fig.legend(handles, labels, loc='upper right')
     figsize=(16.0, 10.0)
-    
+
 #    filename_bb = Path(dir_save_subfolder, 'mean_splined_detrnded')
     save_fig(fig, dir_save_subfolder, 'mean_splined_detrnded.png', figsize)
-    
+
 #    fig.savefig(filename_bb+'.png', dpi=100, figsize=(16.0, 10.0), format='png')
 #    if flags.if_save_eps:
 #        fig.savefig(filename_bb+'.eps', transparent=False, dpi=100, figsize=(16.0, 10.0), format='eps')
@@ -247,7 +247,7 @@ def detrend(self):
         out_file.write(my_string + '\n')
         out_file.close()
         ind = np.arange(3)
-        fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True, figsize=(12, 8))
+        fig, ax1 = plt.subplots(nrows=1, ncols=1, sharey=True,)
         fig.suptitle('Mean values of detrended signal in each segment')
         colours_for_cat = ['#f43605', '#fcc006', '#89a203', '#047495', '#030764', '#c071fe',\
                        '#db5856', '#0cdc73', '#fbdd7e', '#e78ea5']
@@ -259,7 +259,7 @@ def detrend(self):
 
         except TypeError:
             print('Bar plot of cluster Centroides could not be printed')
-            
+
         figsize=(16.0, 10.0)
         save_fig(fig, dir_save_subfolder, 'bar_plot_mean_detrnded', figsize)
 #        filename_bb = Path(dir_save_subfolder, 'bar_plot_mean_detrnded')

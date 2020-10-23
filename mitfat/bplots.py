@@ -6,17 +6,37 @@ Created on Mon Feb 24 17:38:15 2020
 @author: vbokharaie
 """
 
+
 #%%
 def plot_trial_cluster_seq(centroid_to_plot,
                            labels_to_plot,
                            my_title,
                            dir_save='./clusters_one_trial',
                            Cluster_num=2,):
+    """
+    Plot a heatmap of cluster labels for each trial in a sequence of trials.
+
+    Parameters
+    ----------
+    centroid_to_plot : NumPy array.
+        centroids.
+    labels_to_plot : int
+        numeral lables for each centroid.
+    my_title : str
+        plot title.
+    dir_save : str or pathlib.Path, optional
+        where to save the plots. The default is './clusters_one_trial'.
+    Cluster_num : int, optional
+        Number of clusters. The default is 2.
+
+    Returns
+    -------
+    None.
+
+    """
     from pathlib import Path
     import matplotlib.pyplot as plt
     import seaborn as sns
-
-
     dir_save = Path(dir_save)
     dir_save.mkdir(exist_ok=True)
     cmap = sns.color_palette("Paired", Cluster_num)
@@ -45,6 +65,34 @@ def plot_line(data_array,
               label_str='',
               vert_line_times=[],
               color='black',):
+    """
+    Plot line-plot for centroids.
+
+    Parameters
+    ----------
+    data_array : NumPy array.
+        original data.
+    time_array : NumPy array.
+        time-stamps for each entry of data_array.
+    figsize : set of (int, int), optional
+        Figure size. The default is (16, 10).
+    title_str : str, optional
+        plot title. The default is ''.
+    label_str : str, optional
+        Label. The default is ''.
+    vert_line_times : list of float, optional
+        Times to be marked with a vertical red line. The default is [].
+    color : valid matplotlib color, optional
+        color in plot. The default is 'black'.
+
+    Returns
+    -------
+    fig : matplotlib Figure
+        matplotlib Figure.
+    my_ax : matplotlib axes
+        matplotlib axes.
+
+    """
     import matplotlib.pyplot as plt
     import numpy as np
     plt.style.use('seaborn-whitegrid')
@@ -68,8 +116,26 @@ def plot_line(data_array,
 def save_fig(fig,
              dir_save,
              filename_in,
-             figsize=(16,12),
-             ):
+             figsize=(16,12),):
+    """
+    Save the matplotlib Figure.
+
+    Parameters
+    ----------
+    fig : matplotlib Figure
+        Figure to be saved to disk.
+    dir_save : str or pathlib.Path
+        where to save..
+    filename_in : str or pathlib.Path
+        filename.
+    figsize : set of (int, int), optional
+        OBSOLETE, becasue it has gone obsolete in matplotlib.
+
+    Returns
+    -------
+    None.
+
+    """
     from mitfat import flags
     from pathlib import Path
     filename_in = Path(filename_in)
@@ -77,31 +143,40 @@ def save_fig(fig,
     if flags.if_save_eps:
         filename = filename_in.with_suffix('.eps')
         filename = Path(dir_save, filename)
-        fig.savefig(filename, dpi=100, figsize=figsize, format='eps', transparent=False)
+        fig.savefig(filename, format='eps', transparent=False)
 
     if flags.if_save_png:
         filename = filename_in.with_suffix('.png')
         filename = Path(dir_save, filename)
-        fig.savefig(filename, dpi=100, figsize=figsize, format='png')
+        fig.savefig(filename, format='png')
 
 
 
 # %%
 def plot_and_save_bbox_discrete(my_bbox, dir_save_bb,
                                  sup_title=[], limits=[], colours=[]):
-    """Plots continuous bbox
+    """
+    Plot the continuous bbox.
+
     when elemnts are continuous values (such as mean)
     default color pallete is default (virdis), 0 will be navy and 1 will be yellow.
 
     Parameters
     ----------
-    my_bbox: 'numpy.ndarray'
-    dir_save_bb: 'str'
-        path to save folder
-    suptitle: 'str' optional
-        used to title plots
-    limits: 'list' ['float']
-    colours: 'list', matplotlib colors
+    my_bbox : numpy.ndarray
+        Those voxels that we want to plot.
+    dir_save_bb : str or pathlib.Path
+        where to save.
+    sup_title : str, optional
+        main title. The default is [].
+    limits : list of floats, optional
+        y-axis limits. The default is [].
+    colours : list of matplotlib colors, optional
+        colours for the plot. The default is [].
+
+    Returns
+    -------
+    None.
 
     """
     import matplotlib.pyplot as plt
@@ -169,17 +244,28 @@ def plot_and_save_bbox_discrete(my_bbox, dir_save_bb,
 # %%
 def plot_and_save_bbox_continuous(my_bbox, dir_save_bb,
                                    sup_title=[], v_min=0.0, v_max=1.0):
-    """Plots continuous bbox
+    """
+    Plot the continuous bbox.
+
     when elemnts are continuous values (such as mean)
     default color pallete is default (virdis), 0 will be navy and 1 will be yellow.
 
     Parameters
     ----------
-    my_bbox: 'numpy.ndarray'
-    dir_save_bb: 'str'
-        pth to save folder
-    suptitle: 'str' optional
-        used to title plots
+    my_bbox : numpy.ndarray
+        Those voxels that we want to plot..
+    dir_save_bb : str or pathlib.Path
+        where to save.
+    sup_title : str, optional
+        main title. The default is [].
+    v_min : float, optional
+        Minimum value for coloarbar. The default is 0.0.
+    v_max : TYPE, optional
+        Maximum value for coloarbar. The default is 1.0.
+
+    Returns
+    -------
+    None.
 
     """
     import numpy as np

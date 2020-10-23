@@ -342,7 +342,6 @@ def plot_clusters(self, original_data, data_label,
     colours_for_cat_colorbar = ['#000000']+colours_for_cat
     cat_labels = ['Cluster '+str(idx+1) for idx in np.arange(no_clusters)]
     bbox_cat = np.int8(np.zeros(np.shape(mask_bbox)))-1
-    print(np.sum(mask_bbox))
     bbox_cat[mask_bbox == 1] = cluster_labels
     plot_and_save_bbox_discrete(bbox_cat, dir_save_subfolder,
                                 sup_title='kmeans with '+str(no_clusters)+' clusters',

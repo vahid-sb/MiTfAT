@@ -19,16 +19,27 @@ register_method = _Lib.register_method(__methods__)
 @register_method
 def save_clusters(self, X_train, data_label, cluster_labels, cluster_centroids,
                   subfolder_c = ''):
-    """Save cluster to excel file.
+    """
+    Save cluster to excel file.
 
     Parameters
     ----------
-    X_train: 'numpy.ndarray', (N_clustered_data, N_voxels)
-                    N_clustered_data can be N_time_steps, 1, or N_segments
-    data_label: 'str'
-                used in establishing save folders
-    cluster_labels: 'numpy.ndarray', (N_voxels, 1)
-    cluster_centroids: 'numpy.ndarray', (N_clusters, N_clustered_data)
+    X_train : Numpy array.
+        Data to cluster. N_clustered_data can be N_time_steps, 1, or N_segments.
+        Shape is (N_clustered_data, N_voxels)
+    data_label : str
+        used in establishing save folders
+    cluster_labels : list of int
+        labels for clusters.
+    cluster_centroids : Numpy array
+        centroids.
+    subfolder_c : str, optional
+        adding an optional subfolder. The default is ''.
+
+    Returns
+    -------
+    None.
+
     """
     import pandas as pd
     import numpy as np
@@ -62,6 +73,19 @@ def save_clusters(self, X_train, data_label, cluster_labels, cluster_centroids,
 
 # %% just print a template for info files
 def print_info(filename_info=None):
+    """
+    Print info text.
+
+    Parameters
+    ----------
+    filename_info : str or pathlib Path, optional
+        If given, info is written to file otherwise to standard output. The default is None.
+
+    Returns
+    -------
+    None.
+
+    """
     text_info = """
 ## This is a template for input files for the MiTfAT library,
 #  				a pyhton-based fMRI analysis tool.
@@ -126,6 +150,20 @@ DESC: Just a sample dataset.
 
 # %% just print a template for info files
 def test_script(filename=None):
+    """
+    Return back the name of test script.
+
+    Parameters
+    ----------
+    filename : str or pathlib.Path, optional
+        Either a user-defined test file, or the default that already exists in mitfat.
+        The default is None.
+
+    Returns
+    -------
+    None.
+
+    """
     from pathlib import Path
     from shutil import copyfile
 
@@ -138,7 +176,9 @@ def test_script(filename=None):
 
 # %%
 def make_list_of_trial_times(time_steps, first_trial_time=0.0, trial_length=None):
-    """Reads time-steps, first trial time and trial length,
+    """
+    Read time-steps, first trial time and trial length.
+
     calculates ands returns the indices and time-steps of consecutive trials
 
     :param time_steps: time-steps of the fMRI recording
@@ -147,8 +187,6 @@ def make_list_of_trial_times(time_steps, first_trial_time=0.0, trial_length=None
     :type first_trial_time: float, optional
     :param first_trial_time: length of each trial, default None (wouold be set to max(time_steps))
     :type first_trial_time: float, optional
-
-    :raises: Happiness level
 
     :return: list_of_trial_times, list_of_trial_times_indices
     :rtype: list of floats, list of integers
@@ -173,7 +211,9 @@ def make_list_of_trial_times(time_steps, first_trial_time=0.0, trial_length=None
 
 # %%
 def read_data(info_file_name):
-    """Reads the input dataset info from a file,
+    """
+    Read the input dataset info from a file.
+
     returns a fmri_dataset object including all those files.
 
     Parameters
@@ -184,9 +224,6 @@ def read_data(info_file_name):
     Returns
     -------
     fmri_dataset: obj
-
-    Raises
-    ------
 
     """
     from mitfat.file_io import main_get_data
@@ -291,7 +328,9 @@ def read_data(info_file_name):
 
 #%%
 def convert_real_time_to_index(time_steps, cutoff_times_to_convert):
-    """returns index values for first time steps bigger than input time-values.
+    """
+    Return index values for first time steps bigger than input time-values.
+
     Parameters
     ----------
     times_files: 'str'
@@ -304,7 +343,6 @@ def convert_real_time_to_index(time_steps, cutoff_times_to_convert):
                 indices for time values
 
     """
-
 #    text_file = open(times_files, "r")
 #    time_steps = text_file.read().strip().split("\n")
     n_last = len(time_steps) - 1
@@ -327,27 +365,41 @@ def convert_real_time_to_index(time_steps, cutoff_times_to_convert):
 
 #%% read info file
 def read_info_file(info_file_name):
-    """reads the config file.
+    """
+    Read the config file.
+
     assigns default values to fmri_dataset object if not defined in config file.
     A 'sample_info_file.txt' accompanying the library includes standrard format.
+
     Parameters
     ----------
-    info_file_name: 'str'
-                path to config file
+    info_file_name: 'str' or pathlib.Path
+        path to config file
 
     Returns
     -------
-    data_file_name: 'str'
-    mask_file_name: 'str'
-    time_file_name: 'str'
-    dir_source: 'str'
-    dir_save: 'str'
+    data_file_name: 'str' or pathlib.Path
+        data_file_name
+    mask_file_name: 'str' or pathlib.Path
+        mask_file_name
+    time_file_name: 'str' or pathlib.Path
+        time_file_name
+    dir_source: 'str' or pathlib.Path
+        dir_source
+    dir_save: 'str' or pathlib.Path
+        dir_save
     mol_name: 'str'
+        molecule name
     exp_name: 'str'
+        Experiment name
     dataset_no: 'int'
+        number assigned to dataset.
     cutoff_times: 'list' of 'float'
+        Times in which experimental conditions changed.
     description: 'str'
+        general descriptions.
     signal_name: 'str'
+        name of signal. 'T1', 'T2, 'T1*', 'FISP, etc.
     """
     from  pathlib import Path
 
@@ -583,29 +635,45 @@ def read_info_file(info_file_name):
 
 #%%
 def main_get_data(info_file_name):
-    """reads actual data based on info_file_name.
-    uses read_info_file to read the config file and then loads the data.
+    """
+    Read actual data based on info_file_name.
 
+    uses read_info_file to read the config file and then loads the data.
     A 'sample_info_file.txt' accompanying the library includes standrard format.
+    Run mitfat.file_io.print_info() to see how config files should be organised.
+
 
     Parameters
     ----------
-    info_file_name: 'str'
-                path to config file
+    info_file_name : 'str' or pathlib.Path
+        config file.
 
     Returns
     -------
-    data_nii_masked: 'numpy.ndarray', (N_time_steps, N_voxels)
-    mask_roi_numpy: 'numpy.ndarray', (d1, d2, d3)
+    data_nii_masked: 'numpy.ndarray',
+        (N_time_steps, N_voxels)
+    mask_roi_numpy: 'numpy.ndarray',
+        (d1, d2, d3)
     time_steps: 'list' of 'float'
+        time steps
     signal_name: 'str'
+        signal name
     indices_cuttoff: 'list' if 'int'
+        times in which experimental condtions changed.
     experiment_name: 'str'
+        name
     dataset_no: 'int'
+        dtaaset number
     mol_name: 'str'
-    dir_source: 'str'
-    dir_save: 'str'mask_roi_numpy
+        name of moecule
+    dir_source:
+        source folder
+    dir_save: 'str' or pathlib.Path
+        where to save
+    mask_roi_numpy: Numpy.ndarray
+        maks for voxels to consider
     description: 'str'
+        descriptions for dataset
     """
     import numpy as np
     import nibabel

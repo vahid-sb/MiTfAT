@@ -56,7 +56,9 @@ def cluster(self, X_train, num_clusters):
 @register_method
 def cluster_hierarchial(self, signal="raw", num_clusters=2, if_save_plot=False,
                         subfolder_c='Cluster_Hierarchical'):
-    """Hieararchical clustering
+    """
+    Hieararchical clustering.
+
     First 2 cluster over all data,
     choose all voxels corresponding to bigger centroid
     Then 2 clusters over these voxels.
@@ -116,7 +118,8 @@ def cluster_hierarchial(self, signal="raw", num_clusters=2, if_save_plot=False,
 @register_method
 def cluster_TopN(self, signal="raw", n_top=20, if_save_plot=True,
                         subfolder_c='Cluster_TopN'):
-    """Just plotting Top N voxels, i nterm of signal amplitude.
+    """
+    Just plotting Top N voxels, i nterm of signal amplitude.
 
     Parameters
     ----------

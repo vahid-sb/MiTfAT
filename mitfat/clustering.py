@@ -8,62 +8,30 @@ Created on Tue Jul 23 18:54:26 2019
 This module includes methods of fmri_dataset class used for clustering.
 """
 
-#def cluster(X_train, num_clusters):
-#    """A wrapper for clustering mthoeds.
-#    calls cluster_scalar if input data is 1 dimentional,
-#    otherwise calls cluster_raw.
-#
-#    Parameters
-#    ----------
-#    X_train: 'numpy.ndarray', (N=1, N_voxels)
-#    no_clusters: 'int'
-#
-#    Returns
-#    -------
-#    cluster_labels_sorted: 'numpy.ndarray', (N_voxel, 1)
-#    cluster_centroids_sorted:'numpy.ndarray',
-#
-#    See-also
-#    --------
-#    cluster_scalar, cluster_raw
-#    """
-#    print("X_train dimensions:", X_train.shape)
-#    # print("Number of voxels:", self.num_voxels)
-#    # print("Number of time steps:", self.num_time_steps)
-#    if X_train.shape[0] == 1 or len(X_train.shape) == 1:
-#        cluster_labels, cluster_centroid = cluster_scalar(X_train, num_clusters)
-#    elif X_train.shape[0] > 1 and X_train.shape[0] <= self.num_time_steps:
-#        cluster_labels, cluster_centroid = cluster_raw(X_train, num_clusters)
-#    else:
-#        import sys
-#
-#        print(
-#            "Something wrong with the dimension of data while clustering:",
-#            sys.exc_info()[0],
-#        )
-#        raise
-#    return cluster_labels, cluster_centroid
-
-
 # %%
 def cluster_scalar(X_train, no_clusters):
-    """kmean clustering of scalara data.
+    """
+    K-means clustering of scalara data. Scikit-learn implementation.
+
     Sorts the cluster such that cluser 1 always corresponds with
         the one with highest absolute mean.
 
     Parameters
     ----------
-    X_train: 'numpy.ndarray', (N=1, N_voxels)
-    no_clusters: 'int'
+    X_train : numpy.ndarray
+        data to be clustered. Shape is (N=1, N_voxels).
+    no_clusters : int
+        Number of clusters.
 
     Returns
     -------
-    cluster_labels_sorted: 'numpy.ndarray', (N_voxel, 1)
-    cluster_centroids_sorted:'numpy.ndarray',
+    cluster_labels_sorted : numpy.ndarray
+        Cluster label for each data-entry. Shape (N_voxel, 1).
+    cluster_centroids_sorted : numpy.ndarray
+        Centroids for each cluster.
     """
-
     from sklearn.cluster import KMeans
-    
+
     #    assert len(X_train.shape) == 1, \
     #            print('This fucntion is to cluster scalar values for each voxel')
     #    assert np.nan not in X_train, \
@@ -76,7 +44,7 @@ def cluster_scalar(X_train, no_clusters):
     cluster_labels_sorted, cluster_centroids_sorted = sort_cluster(
         kmeans_labels_, kmeans_centroids
     )
-    
+
     cluster_labels_sorted = cluster_labels_sorted + 1
 
     return cluster_labels_sorted, cluster_centroids_sorted
@@ -84,21 +52,27 @@ def cluster_scalar(X_train, no_clusters):
 
 # %%
 def cluster_raw(X_train, no_clusters):
-    """kmean clustering of time-series data.
+    """
+    K-means clustering of time-series data.
+
     Sorts the cluster such that cluser 1 always corresponds with
         the one with highest absolute mean.
 
     Parameters
     ----------
-    X_train: 'numpy.ndarray', (N_time_steps, N_voxels)
-    no_clusters: 'int'
+    X_train : numpy.ndarray
+        data to be clustered. Shape is (N=1, N_voxels).
+    no_clusters : int
+        Number of clusters.
 
     Returns
     -------
-    cluster_labels_sorted: 'numpy.ndarray', (N_voxel, 1)
-    cluster_centroids_sorted:'numpy.ndarray', (N_time_steps, N_voxels)
-    """
+    cluster_labels_sorted : numpy.ndarray
+        Cluster label for each data-entry. Shape is (N_voxel, 1).
+    cluster_centroids_sorted : numpy.ndarray
+        Centroids for each cluster. Shape is (N_time_steps, N_voxels)
 
+    """
     import numpy as np
     from sklearn.cluster import KMeans
 
@@ -126,19 +100,30 @@ def cluster_raw(X_train, no_clusters):
 
 # %%
 def kmeans_missing(xx, no_clusters, max_iter=30):
-    """Perform K-Means clustering on data with missing values.
-    Found it in stackoverflow
-    Argumentss:
-      xx:            An [n_samples, n_features] array of data to cluster.
-      n_clusters:   Number of clusters to form.
-      max_iter:     Maximum number of EM iterations to perform.
-
-    Returns:
-      labels:       An [n_samples] vector of integer labels.
-      centroids:    An [n_clusters, n_features] array of cluster centroids.
-      x_hat:        Copy of xx with the missing values filled in.
     """
+    Perform K-Means clustering on data with missing values.
 
+    Found it in stackoverflow
+
+
+    Parameters
+    ----------
+    xx : Numpy array
+        An [n_samples, n_features] array of data to cluster.
+    no_clusters : int
+        Number of clusters to form..
+    max_iter : int, optional
+        Maximum number of EM iterations to perform.. The default is 30.
+
+    Returns
+    -------
+    labels : list of int
+        An [n_samples] vector of integer labels.
+    centroids : Numpy array
+        An [n_clusters, n_features] array of cluster centroids..
+    x_hat : Numpy arra
+        Copy of xx with the missing values filled in..
+    """
     # dependencies
     from sklearn.cluster import KMeans
     import numpy as np
@@ -185,18 +170,25 @@ def kmeans_missing(xx, no_clusters, max_iter=30):
 
 # %%
 def sort_cluster(cluster_labels, cluster_centroids):
-    """sorts the cluster numbers,
-    such that cluster 1 always correspond with centroid with highest mean absolute value.
+    """
+    Sort the cluster numbers.
+
+    Sorted such that cluster 1 always correspond with centroid with highest mean absolute value.
 
     Parameters
     ----------
-    cluster_labels:
-    cluster_centroids:
+    cluster_labels : list of int
+        cluster labels.
+    cluster_centroids :
+        cluster centroids.
 
     Returns
     -------
-    cluster_labels_out:
-    clusters_centroids_out:
+    cluster_labels_out : list of int
+        sorted lable list.
+    clusters_centroids_out : Numpy array
+        sorted centroids.
+
     """
     import numpy as np
 
@@ -217,18 +209,25 @@ def sort_cluster(cluster_labels, cluster_centroids):
 
 # %%
 def kmean_it(self, cluster_no):
-    """a wrapper for sklearn.cluster.KMeans
-    sorts the clusters, assigns cluster labels to bbox non-zero cells
+    """
+    To function as a wrapper for sklearn.cluster.KMeans.
+
+    Sorts the clusters, assigns cluster labels to bbox non-zero cells
 
     Parameters
     ----------
-    cluster_no: 'int'
+    cluster_no : int
+        cluster number..
 
     Returns
     -------
-    bbox_cat: 'numpy.ndarray', (e1, e2, e3)
-    cluster_labels_sorted:  'numpy.ndarray'
-    cluster_centroids_sorted:  'numpy.ndarray'
+    bbox_cat : numpy array
+        mask for voxels to consider. shape (e1, e2, e3).
+    cluster_labels_sorted : list of int
+        Sorted list of cluster labels.
+    cluster_centroids_sorted : numpy array
+        Centroids, sorted.
+
     """
     from sklearn.cluster import KMeans
     import numpy as np
