@@ -54,5 +54,5 @@ https://github.com/vahid-sb/MiTfAT/blob/master/docs/mitfat.pdf)
 <a id="1">[1]</a> 
 Savić T. , Gambino G., Bokharaie V. S., Noori H. R., Logothetis N.K., Angelovski G., (2019). 
 Early detection and monitoring of cerebral ischemia using calcium-responsive MRI probes. 
-Proceedings of National Academy of Science (PNAS).
+Proceedings of the National Academy of Science of the USA (PNAS).
 
