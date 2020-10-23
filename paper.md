@@ -18,8 +18,6 @@ affiliations:
 
 date: 20 October 2020
 
-bibliography: paper.bib
-
 # Summary
  
 Functional Magnetic Resonance Imaging, fMRI, is a technique used in Neuroscience to measure brain activity based on any signal that can be measured in an MRI scanner. Normally, fMRI is used to detect changes associated with blood flow. But it can also be used to detect changes in concentrations of molecules with different magnetic properties which are directly injected into the brain of a subject. 
