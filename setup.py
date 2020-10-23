@@ -14,13 +14,13 @@ def read(filename):
 
 
 setup(
-    name="MiTfAT: An fMRI Analysis Tool, Made in Tübingen",
+    name="mitfat",
     version="0.1.7",
-    url="https://gitlab.tuebingen.mpg.de/vbokharaie/mitfat/",
+    url="https://github.com/vahid-sb/MiTfAT",
     license="GNU Version 3",
     author="Vahid Samadi Bokharaie",
-    author_email="vahid.bokharaie@tuebingen.mpg.de",
-    description="A python-based fMRI Analysis Tool. ",
+    author_email="vahid.bokharaie@protonmail.com",
+    description="A Python-based Scikit-Learn-friendly fMRI Analysis Tool, Made in Tuebingen.",
     long_description=read("README.rst"),
     packages=find_packages(exclude=("tests", "venv")),
     test_suite="nose.collector",
@@ -40,7 +40,7 @@ setup(
     ],
 
     classifiers=[
-        "Development Status :: 2 - Beta",
+        "Development Status :: 4 - Beta",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.7",
