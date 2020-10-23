@@ -10,7 +10,7 @@ tags:
 authors:
   - name: Vahid S. Bokharaie
     orcid: 0000-0001-6544-7960
-    affiliation: "1" # (Multiple affiliations must be quoted)
+    affiliation: "1" 
 
 affiliations:
  - name: Max Planck Institute for Biological Cybernetics, Tuebingen, Germany
