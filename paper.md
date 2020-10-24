@@ -1,22 +1,22 @@
 ---
 title: 'MiTfAT: A Python-based scikit-learn-friendly fMRI Analysis Tool, Made in Tuebingen.'
-
 tags:
   - Python
+  - Cpmputational Neuroscience
   - fMRI Analysis
   - Machine Learning
   - Time-Series Analysis
-
 authors:
-  - name: Vahid S. Bokharaie
+  - name: Vahid S. Bokharaie^[Corresponding Author.]
     orcid: 0000-0001-6544-7960
-    affiliation: "1" 
-
+    affiliation: 1
 affiliations:
  - name: Max Planck Institute for Biological Cybernetics, Tuebingen, Germany
    index: 1
-
 date: 20 October 2020
+bibliography: paper.bib
+---
+
 
 # Summary
  
@@ -26,7 +26,7 @@ Regardless of the signal that is measured in fMRI recording, from a computationa
 
 # Statement of need
 
-`MiTfAT` is a scikit-learn-friendly Python library to analyse fMRI data. It was primarily developed for the study which is presented in [[1]](#1).
+`MiTfAT` is a scikit-learn-friendly Python library to analyse fMRI data. It was primarily developed for the study which is presented in [@savic:2019].
 
 There are a few software packages that are commonly used by researchers to pre-process the fMRI time-series and then analyse them. But the decision to develop a new library which eventually led to `MiTfAT` library is motivated by a few reasons. The main reason is that all the commonly used fMRI analysis packages come with so many belts and whistles that it usually takes the user a long time to find out which parts of each software package is what he/she need. Another reason was that none of the commonly used software packages I could find was written in Python, which is my programming language of choice. And lastly, the analysis methods I needed for the problems I had in mind were not available in any of those software packages. 
 
@@ -50,8 +50,4 @@ The basic principle behind `MiTfAT` is that it imports all the relevant data of 
 Thee are also two scripts in `tests` folder of the repository ([here](https://github.com/vahid-sb/MiTfAT/tree/master/tests/)), accomponied with sample datasets, which you can run to see sample outputs of the library. 
  
 ## References
-<a id="1">[1]</a> 
-Savić T. , Gambino G., Bokharaie V. S., Noori H. R., Logothetis N.K., Angelovski G., (2019). 
-Early detection and monitoring of cerebral ischemia using calcium-responsive MRI probes. 
-Proceedings of the National Academy of Science of the USA (PNAS).
 
