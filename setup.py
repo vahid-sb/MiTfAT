@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="mitfat",
-    version="0.1.8",
+    version="0.1.9",
     url="https://github.com/vahid-sb/MiTfAT",
     license="GNU Version 3",
     author="Vahid Samadi Bokharaie",
