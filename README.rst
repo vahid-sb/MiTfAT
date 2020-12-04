@@ -45,9 +45,9 @@ It is better to install `MiTfAT` in a new virtual environment. If you are using 
 
 Then in your command prompt or bash, simply type:
 
- .. code-block:: bash
+.. code-block:: bash
 
-    pip install mitfat
+   pip install mitfat
 
 
 Or if you want to work with the latest beta-release, you can install directly from `this repository <https://github.com/vahid-sb/MiTfAT>`_.
