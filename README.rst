@@ -33,58 +33,63 @@ The basic principle behind `MiTfAT` is that it imports all the relevant data of 
 
 Installation
 ------------
-You can install `MitfAT` using `pip`. In your command prompt or bash, simply type:
+It is better to install `MiTfAT` in a new virtual environment. If you are using Anaconda Python, you can do the following:
+
+.. code-block:: bash
+
+   conda create -n env_mitfat
+   conda activate env_mitfat
+
+
+Then in your command prompt or bash, simply type:
 
  .. code-block:: bash
 
     pip install mitfat
 
-If you are using Anaconda on Windows, better to open an Anaconda command prompt
-and then type the above.
 
-Or if you want to work with the latest beta-release, you can install directly from this repository.
+Or if you want to work with the latest beta-release, you can install directly from `this repository <https://github.com/vahid-sb/MiTfAT>`_.
 
+Basics
+------
+The `MiTfAT` library incorporates all the relevant data and information about an experiment into a Python class of type `fmri_dataset`, and then the user can perform various analysis and visualisatin steps. In order to load the fMRI data, currently, the required information about data files and details of the experiment should be written down in a specified format in a config file, details of which will be discussed shortly. But if you want to get started with some sample data and know some of the features of the library, you can download two sample scripts and corresponding datasets from `here <https://github.com/vahid-sb/MiTfAT/blob/master/tests.zip>`_ . When up unzip the file, you can see a folder called ``tests`` in which you can see two python scrips. There are also two subfolder, each contains sample datasets that are used by each of the scripts. And you can also see three text files which are the config files used by scripts.
 
-    **If you don't know anything about Python:**
+If you have installed `MiTfAT`, then you can run each of these scripts and the outputs they generate will be saved in new sub-folders inside the ``tests`` folder. Studying these two scripts can be quite informative and it is highly recommended for the users. If you want to use these samples scripts for your own data, you can simply edit the config files.
 
-    then you should not worry. In order to use this code, you do not need to know anything about python. You just need to install it and then follow the instructions in the Usage section to be able to run the code. But you need to install Python first. Python is just a programming language and unlike Matlab is not owned by a company or organization, hence you do not need to bu a license to use it. There are various ways to install Python, but the easiest is to go `here <https://docs.conda.io/en/latest/miniconda.html>`_ and install Miniconda Python 3.x (3.7 at the time of writing). This will install Python and a minimal set of commonly used libraries (Libraries in Python are equivalent to toolboxes in Matlab). A little detail to keep in mind for Windows users is that you need to open an Anaconda Prompt (which you can find in your Start menu) and then type ``pip install mitfat`` to install the MitfAT library. Typing it in a normal windows command prompt (which you can open by typing ``cmd`` in 'Search program or file' in Start menu) might not work properly.
-
-    When Python is installed, then follow the instructions below to use this code to analyse your fMRI data. I should add though, that I sincerely hope using this code can motivate you to learn a bit about Python. I learned how to use Matlab 20 years ago and still use it to this day. But as I learn more about Python and what is available in this ecosystem, I use Matlab less and Python more and more every day. Python provides powerful tools for you that you did not know you are missing when you were writing programs in Matlab. If you want to learn the basics of Python, I can suggest this `online book <https://jakevdp.github.io/PythonDataScienceHandbook/>`_ to start with.
-
-
-Usage
------
-
-In the 'docs' folder of the repository, you can find the `User Manual <docs/mitfat.pdf>`_, which includes detailed description of the various functionalities of the `MiTfAT` library, and example.
-
-Thee are also two scripts in `tests` folder, accomponied with sample datasets, which you can run to see sample outputs of the library.
-
+In the following chapters, main features of the code are explained. The figures you will see in the following chapter are generated using these two sample scripts.
 
 
 Requirements
 ^^^^^^^^^^^^
 
- .. code-block:: python
+ .. code-block:: bash
 
-  "pandas",
-  "numpy",
-  "scipy",
-  "matplotlib",
-  "nibabel",
-  "nilearn",
-  "pathlib",
-  "seaborn",
-  "openpyxl",
+	"pandas",
+	"numpy",
+	"scipy",
+	"matplotlib",
+	"nibabel",
+	"nilearn",
+	"pathlib",
+	"click",
+	"seaborn",
+	"openpyxl",
 
 
 Compatibility
 -------------
 
-This code is tested under Python 3.8, and should work well for all current versions of Python 3.
+This code is tested under Python 3.7, and 3.8.
 
-Licence
+License
 -------
 GNU General Public License (Version 3).
+
+Citation
+--------
+Please cite this code as follows:
+
+Bokharaie VS (2019) "`MiTfAT`: A Python-based fMRI Analysis Tool", Zenodo. https://doi.org/10.5281/zenodo.3372365.
 
 Citation
 --------
@@ -93,6 +98,7 @@ Please use the CITATION.cff file.
 This code was originally developed for a collaboration which led to the following publications:
 
 Savić T. , Gambino G., Bokharaie V. S., Noori H. R., Logothetis N.K., Angelovski G., "Early detection and monitoring of cerebral ischemia using calcium-responsive MRI probes", PNAS, 2019.
+
 
 Author
 -------
