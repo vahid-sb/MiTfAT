@@ -4,8 +4,8 @@ MiTfAT
 .. image:: https://img.shields.io/pypi/v/MiTfAT.svg
     :target: https://pypi.python.org/pypi/MiTfAT
     :alt: Latest PyPI version
-.. image:: https://zenodo.org/badge/203363866.svg
-   :target: https://zenodo.org/badge/latestdoi/203363866
+.. image:: https://zenodo.org/badge/290846934.svg
+   :target: https://zenodo.org/badge/latestdoi/290846934
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
    :target: https://www.gnu.org/licenses/gpl-3.0
 
@@ -57,7 +57,7 @@ Usage
 
 In the 'docs' folder of the repository, you can find the `User Manual <docs/mitfat.pdf>`_, which includes detailed description of the various functionalities of the `MiTfAT` library, and example.
 
-Thee are also two scripts in `tests` folder, accomponied with sample datasets, which you can run to see sample outputs of the library. 
+Thee are also two scripts in `tests` folder, accomponied with sample datasets, which you can run to see sample outputs of the library.
 
 
 
