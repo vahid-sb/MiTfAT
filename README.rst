@@ -15,7 +15,7 @@ Introduction
 
 `MiTfAT` is a scikit-learn-friendly Python library to analyse fMRI data.
 
-Manual can be found `here <https://github.com/vahid-sb/MiTfAT/blob/master/docs/mitfat.pdf>`.
+Manual can be found `here <https://github.com/vahid-sb/MiTfAT/blob/master/docs/mitfat.pdf>`_.
 
 There are a few software packages that are commonly used by researchers to pre-process the fMRI time-series and then analyse them. But the decision to develop a new library which eventually led to `MiTfAT` library is motivated by a few reasons. The main reason is that all the commonly used fMRI analysis packages come with so many belts and whistles that it usually takes the user a long time to find out which parts of each software package is what he/she need. Another reason was that none of the commonly used software packages I could find was written in Python, which is my programming language of choice. And lastly, the analysis methods I needed for the problems I had in mind were not available in any of those software packages.
 
