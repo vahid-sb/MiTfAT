@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="mitfat",
-    version="0.1.9",
+    version="0.2.0",
     url="https://github.com/vahid-sb/MiTfAT",
     license="GNU Version 3",
     author="Vahid Samadi Bokharaie",
@@ -26,11 +26,11 @@ setup(
     test_suite="nose.collector",
     tests_require=["nose"],
     package_data={
-	"mitfat": ["sample_info_file.txt"],
-	"mitfat.tests.data": ["*.txt"],
+	"tests": ["*.txt", "*.py"],
 	"tests.datasets": ["*.nii.gz", "*.txt"],
 	"tests.datasets.dataset_trials": ["*.nii.gz", "*.txt"]
 	},
+
     include_package_data=True,
     install_requires=[
         "pandas",
