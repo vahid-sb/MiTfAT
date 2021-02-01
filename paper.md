@@ -1,5 +1,5 @@
 ---
-title: 'MiTfAT: A Python-based scikit-learn-friendly fMRI Analysis Tool, Made in Tuebingen.'
+title: 'MiTfAT: A Python-based Analysis Tool for Molecular fMRI, Made in Tuebingen.'
 tags:
   - Python
   - Cpmputational Neuroscience
