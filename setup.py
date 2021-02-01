@@ -25,7 +25,12 @@ setup(
     packages=find_packages(exclude=("tests", "venv")),
     test_suite="nose.collector",
     tests_require=["nose"],
-    package_data={"mitfat": ["datasets/*.*", "sample_info_file.txt"]},
+    package_data={
+	"mitfat": ["sample_info_file.txt"],
+	"mitfat.tests.data": ["*.txt"],
+	"tests.datasets": ["*.nii.gz", "*.txt"],
+	"tests.datasets.dataset_trials": ["*.nii.gz", "*.txt"]
+	},
     include_package_data=True,
     install_requires=[
         "pandas",
