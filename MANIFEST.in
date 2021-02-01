@@ -1,5 +1,0 @@
-include requirements.txt
-include ./tests/*.*
-include ./tests/datasets/*.*
-include ./tests/dataset_trials/*.*
-
