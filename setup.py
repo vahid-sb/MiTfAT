@@ -26,9 +26,6 @@ setup(
     test_suite="nose.collector",
     tests_require=["nose"],
     package_data={
-	"tests": ["*.txt", "*.py"],
-	"tests.datasets": ["*.nii.gz", "*.txt"],
-	"tests.datasets.dataset_trials": ["*.nii.gz", "*.txt"]
 	},
 
     include_package_data=True,
