@@ -34,7 +34,7 @@ The basic principle behind `MiTfAT` is that it imports all the relevant data of 
 
 There are various functionalities available to analyze and visualize the data in a number of ways. They include:
 
-  - Clustering the time-series using K-means clustering. Clustering can be done based on raw or normalized values in all time-steps, or the mean value of each time-series or slope of a linear-regression passing through the time-series. If the time-span of the recording is divided into a number of segments, clustering can be done on each segment or the combination of the values in the segments. `MiTfAT` uses `scikit-learn` [@scikit:2011] for all machine learning functionalities. Hence, K-means can be easily replaced with any other clustering algorithm implemented in `scikit-learn`.
+  - Clustering the time-series using K-means clustering. Clustering can be done based on raw or normalized values in all time-steps, or the mean value of each time-series or slope of a linear-regression passing through the time-series. If the time-span of the recording is divided into a number of segments, clustering can be done on each segment or the combination of the values in the segments. `MiTfAT` uses `scikit-learn` [@scikit:2011] for machine learning functionalities. Hence, K-means can be easily replaced with any other clustering algorithm implemented in `scikit-learn`.
 
   - Removing voxels with a low signal to noise ratio. This is done using a clustering algorithm in two stages. In the first stage, the algorithm removes the time-series corresponding to voxels in which signal to noise ratio is not high enough. And in the second stage, the time-series corresponding to the remaining voxels are clustered to identify the distribution pattern of the contrast agent.
 
@@ -44,7 +44,7 @@ There are various functionalities available to analyze and visualize the data in
 
  - Averaging over many trials. If we repeat an experiment many times, then it is usually of interest to average the measurements over all the trials. This can be useful if each measurement is noisy and we want to attenuate the effects of noise by averaging. `MiTfAT` provides such functionality.
 
- - Visualization. The `fmri_dataset` class includes various visualization functions. They include functions that can plot the raw, normalized, averaged, or linear approximations of the time-series in each voxel independently or as part of an overall plot representing each layer in the fMRI mask. Also, various functions to plot centroids resulting from clustering algorithms and also plots to show how voxels corresponding to each cluster are placed in the overall mask. Such plots can be quite informative when we want to study the diffusion of a contrast agent in the brain.
+ - Visualization. The `fmri_dataset` class includes various visualization functions. They include functions that can plot the raw, normalized, averaged, or linear approximations of the time-series in each voxel independently or as part of a plot representing all voxels in each layer of the fMRI mask. Also, various functions to plot centroids resulting from clustering algorithms and also plots to show how voxels corresponding to each cluster are placed in the overall mask. Such plots can be quite informative when we want to study the diffusion of a contrast agent in the brain.
 
 # Examples
 `MiTfAT` repository includes a manual that contains many examples of the various capabilities of the library. It can be found [here](https://github.com/vahid-sb/MiTfAT/tree/master/docs/mitfat.pdf).
