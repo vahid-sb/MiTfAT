@@ -49,6 +49,6 @@ There are various functionalities available to analyze and visualize the data in
 # Examples
 `MiTfAT` repository includes a manual that contains many examples of the various capabilities of the library. It can be found [here](https://github.com/vahid-sb/MiTfAT/tree/master/docs/mitfat.pdf)
 
-There are also two scripts in the `tests` folder of the repository that can be found ([here](https://github.com/vahid-sb/MiTfAT/tree/master/tests/)), accompanied with sample datasets, which you can run to see sample outputs of the library.
+There are also two scripts in the `tests` folder of the repository that can be found [here](https://github.com/vahid-sb/MiTfAT/tree/master/tests/), accompanied with sample datasets, which you can run to see sample outputs of the library.
 
 ## References
