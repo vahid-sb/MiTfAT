@@ -4,8 +4,8 @@ MiTfAT
 .. image:: https://img.shields.io/pypi/v/MiTfAT.svg
     :target: https://pypi.python.org/pypi/MiTfAT
     :alt: Latest PyPI version
-.. image:: https://zenodo.org/badge/290846934.svg
-   :target: https://zenodo.org/badge/latestdoi/290846934
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4543316.svg
+   :target: https://doi.org/10.5281/zenodo.4543316
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
    :target: https://www.gnu.org/licenses/gpl-3.0
 
