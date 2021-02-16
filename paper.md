@@ -2,7 +2,7 @@
 title: 'MiTfAT: A Python-based Analysis Tool for Molecular fMRI Experiments.'
 tags:
   - Python
-  - Cpmputational Neuroscience
+  - Computational Neuroscience
   - fMRI Analysis
   - Machine Learning
   - Time-Series Analysis
