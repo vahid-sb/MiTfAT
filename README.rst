@@ -87,11 +87,11 @@ Citation
 --------
 Please cite this code as follows:
 
-Bokharaie VS (2019) "`MiTfAT`: A Python-based fMRI Analysis Tool", Zenodo. https://doi.org/10.5281/zenodo.3372365.
+Bokharaie, V. S., (2021). MiTfAT: A Python-based Analysis Tool for Molecular fMRI Experiments.. Journal of Open Source Software, 6(58), 2827, https://doi.org/10.21105/joss.02827
 
-Citation
---------
-Please use the CITATION.cff file.
+BibTeX item:
+`Copy BibTeX item <https://joss.theoj.org/papers/10.21105/joss.02827#>`_.
+
 
 This code was originally developed for a collaboration which led to the following publications:
 
